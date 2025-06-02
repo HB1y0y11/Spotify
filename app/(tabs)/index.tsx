@@ -1,5 +1,5 @@
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
+import { Link, Stack, useRouter } from 'expo-router';
 import { SettingOutlined, ClockCircleOutlined } from "@ant-design/icons";
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,8 +10,11 @@ export default function Home() {
 
   return (
     <View style={styles.containerHEJ}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}>
+
+      {/* ScrollView para permitir rolagem vertical */}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        
+        {/* Gradiente de fundo */}
         <LinearGradient
           colors={['#7B7B7B', '#111111', '#111111']}
           locations={[0, 0.2, 1]}
@@ -20,31 +23,46 @@ export default function Home() {
           end={{ x: 1, y: 1 }}
         />
 
+        {/* Cabeçalho com saudação e ícones */}
         <View style={styles.headerHEJ}>
           <Text style={styles.TitleHEJ}>Boa tarde</Text>
+          
+          {/* Container dos ícones (notificações, relógio e configurações) */}
           <View style={styles.iconsContainerHEJ}>
+
+            {/* Ícone de notificações */}
             <MaterialIcons
               name="notifications"
               color="white"
               style={styles.iconHEJ}
             />
+            
+            {/* Ícone de relógio */}
             <ClockCircleOutlined style={styles.iconHEJ} />
-            <TouchableOpacity>
+            
+            {/* Botão de configurações que navega para tela 'options' */}
+            <TouchableOpacity onPress={() => router.push('options')}>
               <SettingOutlined style={styles.iconHEJ} />
             </TouchableOpacity>
           </View>
-
         </View>
+
+        {/* Seção de cards em formato grid (2x2) */}
         <View style={styles.sectionHEJ}>
+
+          {/* Primeira linha de cards */}
           <View style={styles.rowHEJ}>
+
+            {/* Card 1 */}
             <View style={styles.card2HEJ}>
               <Image
-                //source={require('./caminho/para/sua/imagem1.jpg')}
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
                 style={styles.cardImage2HEJ}
               />
               <Text style={styles.cardTextHEJ}>EP 3 - Música de P...</Text>
             </View>
+            
+            {/* Card 2 */}
             <View style={styles.card2HEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
@@ -54,7 +72,10 @@ export default function Home() {
             </View>
           </View>
 
+          {/* Segunda linha de cards */}
           <View style={styles.rowHEJ}>
+
+            {/* Card 3 */}
             <View style={styles.card2HEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
@@ -62,6 +83,8 @@ export default function Home() {
               />
               <Text style={styles.cardTextHEJ}>Card 3</Text>
             </View>
+            
+            {/* Card 4 */}
             <View style={styles.card2HEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
@@ -72,9 +95,13 @@ export default function Home() {
           </View>
         </View>
 
+        {/* Seção horizontal de episódios recomendados */}
         <View style={styles.sectionHEJ}>
           <Text style={styles.TitleHEJ}>Episódios para você</Text>
+          
+          {/* ScrollView horizontal para os cards de episódios */}
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {/* Card de episódio 1 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
@@ -83,6 +110,7 @@ export default function Home() {
               <Text style={styles.cardTitleHEJ}>EP 3 - Música de P...</Text>
             </View>
 
+            {/* Card de episódio 2 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
@@ -91,6 +119,7 @@ export default function Home() {
               <Text style={styles.cardTitleHEJ}>EP 3 - Música de P...</Text>
             </View>
 
+            {/* Card de episódio 3 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
@@ -99,6 +128,7 @@ export default function Home() {
               <Text style={styles.cardTitleHEJ}>EP 3 - Música de P...</Text>
             </View>
 
+            {/* Card de episódio 4 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/imagem2.jpg' }}
@@ -109,9 +139,13 @@ export default function Home() {
           </ScrollView>
         </View>
 
+        {/* Seção horizontal de recomendações diárias */}
         <View style={styles.sectionHEJ}>
           <Text style={styles.TitleHEJ}>Recomendado para hoje</Text>
+          
+          {/* ScrollView horizontal para os cards de recomendações */}
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {/* Card de recomendação 1 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/folklore.jpg' }}
@@ -120,6 +154,7 @@ export default function Home() {
               <Text style={styles.cardTitleHEJ}>folklore</Text>
             </View>
 
+            {/* Card de recomendação 2 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/folklore.jpg' }}
@@ -128,6 +163,7 @@ export default function Home() {
               <Text style={styles.cardTitleHEJ}>folklore</Text>
             </View>
 
+            {/* Card de recomendação 3 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/folklore.jpg' }}
@@ -136,6 +172,7 @@ export default function Home() {
               <Text style={styles.cardTitleHEJ}>folklore</Text>
             </View>
 
+            {/* Card de recomendação 4 */}
             <View style={styles.cardWithImageHEJ}>
               <Image
                 source={{ uri: 'https://exemplo.com/reputation.jpg' }}
@@ -145,13 +182,15 @@ export default function Home() {
             </View>
           </ScrollView>
         </View>
-        <p></p>
-        <p></p>
+
+        {/* Espaçamento extra no final */}
+        <View style={{ height: 20 }} />
       </ScrollView>
     </View>
   );
 }
 
+// Estilos
 const styles = StyleSheet.create({
   containerHEJ: { flex: 1, backgroundColor: '#121212', position: 'relative', },
   headerHEJ: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 32, paddingVertical: 24, },
