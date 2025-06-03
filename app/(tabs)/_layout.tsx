@@ -1,9 +1,22 @@
+/* ==================================== */
+/* ====== COMPONENTE DE NAVEGAÇÃO ===== */
+/* ==================================== */
 import { Tabs } from 'expo-router';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 
-export default function Layout() {
+export default function LayoutHEJ() {
+  const [fontsLoaded] = useFonts({
+    'Gotham-Regular': Montserrat_400Regular,
+    'Gotham-Bold': Montserrat_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Tabs
       screenOptions={({ route }) => ({
@@ -28,6 +41,7 @@ export default function Layout() {
           fontSize: 13,
           marginTop: 2,
           marginBottom: 8,
+          fontFamily: 'Gotham-Regular',
         },
         headerShown: false,
         tabBarIcon: ({ color }) => {
@@ -51,6 +65,8 @@ export default function Layout() {
       <Tabs.Screen name="search" options={{ title: 'Buscar' }} />
       <Tabs.Screen name="un" options={{ title: 'Biblioteca' }} />
       <Tabs.Screen name="in" options={{ title: 'Premium' }} />
+      <Tabs.Screen name="options" options={{ href: null }} />
+      <Tabs.Screen name="perfil" options={{ href: null }} />
     </Tabs>
   );
 }

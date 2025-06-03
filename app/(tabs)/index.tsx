@@ -1,202 +1,181 @@
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Link, Stack, useRouter } from 'expo-router';
+/* ==================================== */
+/* ===== PÁGINA PRINCIPAL (HOME) ====== */
+/* ==================================== */
+import { ScrollView, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 import { SettingOutlined, ClockCircleOutlined } from "@ant-design/icons";
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Image } from 'react-native';
+import { CustomText } from "../components/CustomText";
+import ImageWithGlowHEJ from '../components/ImageWithGlowHEJ';
 
-export default function Home() {
-  const router = useRouter();
+export default function HomeHEJ() {
+  const routerHEJ = useRouter();
 
   return (
-    <View style={styles.containerHEJ}>
-
-      {/* ScrollView para permitir rolagem vertical */}
+    <View style={stylesHEJ.containerHEJ}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        
         {/* Gradiente de fundo */}
         <LinearGradient
           colors={['#7B7B7B', '#111111', '#111111']}
           locations={[0, 0.2, 1]}
-          style={styles.backgroundHEJ}
+          style={stylesHEJ.backgroundHEJ}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
         />
 
-        {/* Cabeçalho com saudação e ícones */}
-        <View style={styles.headerHEJ}>
-          <Text style={styles.TitleHEJ}>Boa tarde</Text>
-          
-          {/* Container dos ícones (notificações, relógio e configurações) */}
-          <View style={styles.iconsContainerHEJ}>
-
-            {/* Ícone de notificações */}
+        {/* Cabeçalho com título e ícones */}
+        <View style={stylesHEJ.headerHEJ}>
+          <CustomText style={stylesHEJ.TitleHEJ}>Boa tarde</CustomText>
+          <View style={stylesHEJ.iconsContainerHEJ}>
             <MaterialIcons
               name="notifications"
               color="white"
-              style={styles.iconHEJ}
+              style={stylesHEJ.iconHEJ}
             />
-            
-            {/* Ícone de relógio */}
-            <ClockCircleOutlined style={styles.iconHEJ} />
-            
-            {/* Botão de configurações que navega para tela 'options' */}
-            <TouchableOpacity onPress={() => router.push('options')}>
-              <SettingOutlined style={styles.iconHEJ} />
+            <ClockCircleOutlined style={stylesHEJ.iconHEJ} />
+            <TouchableOpacity onPress={() => routerHEJ.push('options')}>
+              <SettingOutlined style={stylesHEJ.iconHEJ} />
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Seção de cards em formato grid (2x2) */}
-        <View style={styles.sectionHEJ}>
-
-          {/* Primeira linha de cards */}
-          <View style={styles.rowHEJ}>
-
-            {/* Card 1 */}
-            <View style={styles.card2HEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImage2HEJ}
+        {/* Seção de cards horizontais */}
+        <View style={stylesHEJ.sectionHEJ}>
+          <View style={stylesHEJ.rowHEJ}>
+            <View style={stylesHEJ.card2HEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm1.png')}
+                styleImageHEJ={stylesHEJ.cardImage2HEJ}
               />
-              <Text style={styles.cardTextHEJ}>EP 3 - Música de P...</Text>
+              <CustomText style={stylesHEJ.cardCustomTextHEJ}>Bonda 69</CustomText>
             </View>
-            
-            {/* Card 2 */}
-            <View style={styles.card2HEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImage2HEJ}
+            <View style={stylesHEJ.card2HEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm2.png')}
+                styleImageHEJ={stylesHEJ.cardImage2HEJ}
               />
-              <Text style={styles.cardTextHEJ}>#04 - Positividad...</Text>
+              <CustomText style={stylesHEJ.cardCustomTextHEJ}>Teto trip</CustomText>
             </View>
           </View>
 
-          {/* Segunda linha de cards */}
-          <View style={styles.rowHEJ}>
-
-            {/* Card 3 */}
-            <View style={styles.card2HEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImage2HEJ}
+          <View style={stylesHEJ.rowHEJ}>
+            <View style={stylesHEJ.card2HEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm3.png')}
+                styleImageHEJ={stylesHEJ.cardImage2HEJ}
               />
-              <Text style={styles.cardTextHEJ}>Card 3</Text>
+              <CustomText style={stylesHEJ.cardCustomTextHEJ}>Chest pain(I love)</CustomText>
             </View>
-            
-            {/* Card 4 */}
-            <View style={styles.card2HEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImage2HEJ}
+            <View style={stylesHEJ.card2HEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm4.png')}
+                styleImageHEJ={stylesHEJ.cardImage2HEJ}
               />
-              <Text style={styles.cardTextHEJ}>Card 4</Text>
+              <CustomText style={stylesHEJ.cardCustomTextHEJ}>Levan pokkan</CustomText>
             </View>
           </View>
         </View>
 
-        {/* Seção horizontal de episódios recomendados */}
-        <View style={styles.sectionHEJ}>
-          <Text style={styles.TitleHEJ}>Episódios para você</Text>
-          
-          {/* ScrollView horizontal para os cards de episódios */}
+        {/* Seção de episódios recomendados */}
+        <View style={stylesHEJ.sectionHEJ}>
+          <CustomText style={stylesHEJ.TitleHEJ}>Episódios para você</CustomText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {/* Card de episódio 1 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJ1.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>EP 3 - Música de P...</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>EP 3 - Nerdcast -...</CustomText>
+              <CustomText style={stylesHEJ.subcardTitleHEJ}>JovemNerd</CustomText>
             </View>
 
-            {/* Card de episódio 2 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJ2.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>EP 3 - Música de P...</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>TEMP 2 - Capadu...</CustomText>
+              <CustomText style={stylesHEJ.subcardTitleHEJ}>Jurandir Filho</CustomText>
             </View>
 
-            {/* Card de episódio 3 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem1.jpg' }}
-                style={styles.cardImageHEJ}
-              />
-              <Text style={styles.cardTitleHEJ}>EP 3 - Música de P...</Text>
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <View style={stylesHEJ.imageContainerHEJ}>
+                <ImageWithGlowHEJ
+                  source={require('../assets/HEJ3.png')}
+                  styleImageHEJ={stylesHEJ.cardImageHEJ}
+                />
+                <View style={stylesHEJ.progressBackgroundHEJ}>
+                  <View style={[stylesHEJ.progressForegroundHEJ, { width: '45%' }]} />
+                </View>
+              </View>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>99 Vidas - Trail...</CustomText>
+              <CustomText style={stylesHEJ.subcardTitleHEJ}>Jurandir Filho e Izzy Nobre</CustomText>
             </View>
 
-            {/* Card de episódio 4 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/imagem2.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJ4.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>#04 - Positividad...</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>#194 Vingadore...</CustomText>
+              <CustomText style={stylesHEJ.subcardTitleHEJ}>JovemNerd</CustomText>
             </View>
           </ScrollView>
         </View>
 
-        {/* Seção horizontal de recomendações diárias */}
-        <View style={styles.sectionHEJ}>
-          <Text style={styles.TitleHEJ}>Recomendado para hoje</Text>
-          
-          {/* ScrollView horizontal para os cards de recomendações */}
+        {/* Seção de recomendações diárias */}
+        <View style={stylesHEJ.sectionHEJ}>
+          <CustomText style={stylesHEJ.TitleHEJ}>Recomendado para hoje</CustomText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {/* Card de recomendação 1 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/folklore.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm5.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>folklore</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>Creepy Nuts</CustomText>
             </View>
 
-            {/* Card de recomendação 2 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/folklore.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm6.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>folklore</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>Grilo</CustomText>
             </View>
 
-            {/* Card de recomendação 3 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/folklore.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm7.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>folklore</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>Mashle</CustomText>
             </View>
 
-            {/* Card de recomendação 4 */}
-            <View style={styles.cardWithImageHEJ}>
-              <Image
-                source={{ uri: 'https://exemplo.com/reputation.jpg' }}
-                style={styles.cardImageHEJ}
+            <View style={stylesHEJ.cardWithImageHEJ}>
+              <ImageWithGlowHEJ
+                source={require('../assets/HEJm8.png')}
+                styleImageHEJ={stylesHEJ.cardImageHEJ}
               />
-              <Text style={styles.cardTitleHEJ}>reputation</Text>
+              <CustomText style={stylesHEJ.cardTitleHEJ}>Hatsuni Miku</CustomText>
             </View>
           </ScrollView>
         </View>
 
-        {/* Espaçamento extra no final */}
-        <View style={{ height: 20 }} />
+        {/* Espaçamento final */}
+        <p></p>
+        <p></p>
       </ScrollView>
     </View>
   );
 }
 
-// Estilos
-const styles = StyleSheet.create({
-  containerHEJ: { flex: 1, backgroundColor: '#121212', position: 'relative', },
-  headerHEJ: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 32, paddingVertical: 24, },
+const stylesHEJ = StyleSheet.create({
+  containerHEJ: { flex: 1, backgroundColor: '#121212', position: 'relative' },
+  headerHEJ: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 32, paddingVertical: 24 },
   TitleHEJ: { color: 'white', fontSize: 28, fontWeight: 'bold', flex: 1, paddingBottom: 16 },
-  sectionHEJ: { marginVertical: 24, marginHorizontal: 24 },
   iconsContainerHEJ: { flexDirection: 'row', gap: 24, marginLeft: 'auto' },
+  iconHEJ: { color: 'white', fontSize: 24 },
   backgroundHEJ: {
     position: 'absolute',
     left: 0,
@@ -205,7 +184,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     zIndex: -1,
   },
-  iconHEJ: { color: 'white', fontSize: 24 },
+  sectionHEJ: { marginVertical: 24, marginHorizontal: 20 },
   card2HEJ: {
     flexDirection: 'row',
     width: 190,
@@ -220,14 +199,14 @@ const styles = StyleSheet.create({
     gap: 10,
     marginBottom: 10,
   },
-  cardTextHEJ: {
+  cardCustomTextHEJ: {
     fontSize: 16,
     color: 'white',
     alignContent: 'center'
   },
   cardWithImageHEJ: {
     width: 240,
-    alignItems: 'center',
+    marginRight: 16,
   },
   cardImage2HEJ: {
     width: 90,
@@ -247,5 +226,26 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     fontWeight: '500',
+  },
+  subcardTitleHEJ: {
+    fontSize: 15,
+    marginLeft: 20,
+    color: 'gray',
+    fontWeight: '500',
+  },
+  imageContainerHEJ: {
+    position: 'relative',
+  },
+  progressBackgroundHEJ: {
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    width: '100%',
+    height: 8,
+    borderRadius: 4,
+    marginTop: 8,
+  },
+  progressForegroundHEJ: {
+    backgroundColor: '#1DB954',
+    height: 8,
+    borderRadius: 4,
   }
 });

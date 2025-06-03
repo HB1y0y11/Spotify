@@ -2,9 +2,9 @@ import '@expo/metro-runtime';
 import React from 'react';
 import { useRouter } from 'expo-router';
 import Icons from 'react-native-vector-icons/AntDesign';
+import { CustomText } from "../components/CustomText";
 import {
     View,
-    Text,
     StyleSheet,
     StatusBar,
     SafeAreaView,
@@ -13,16 +13,16 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const PerfilEHJ = () => {
-    const router = useRouter();
+const PerfilHEJ = () => {
+    const routerHEJ = useRouter();
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={stylesHEJ.containerHEJ}>
             {/* Gradiente de fundo */}
             <LinearGradient
                 colors={['#7B7B7B', '#111111', '#111111']}
                 locations={[0, 0.35, 1]}
-                style={styles.background}
+                style={stylesHEJ.backgroundHEJ}
                 start={{ x: 1, y: 0 }}
                 end={{ x: 1, y: 1 }}
             />
@@ -35,19 +35,19 @@ const PerfilEHJ = () => {
             />
 
             {/* Conteúdo principal */}
-            <View style={styles.mainContainer}>
+            <View style={stylesHEJ.mainContainerHEJ}>
                 {/* Cabeçalho com seta e pontos */}
-                <View style={styles.headerContainer}>
+                <View style={stylesHEJ.headerContainerHEJ}>
                     <TouchableOpacity
-                        onPress={() => router.push('options')}
-                        style={styles.backButton}
+                        onPress={() => routerHEJ.push('options')}
+                        style={stylesHEJ.backButtonHEJ}
                         activeOpacity={0.7}
                     >
                         <Icons name="left" size={24} color="#ffffff" />
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => router.push('(tabs)')}
-                        style={styles.menuButton}
+                        onPress={() => routerHEJ.push('(tabs)')}
+                        style={stylesHEJ.menuButtonHEJ}
                         activeOpacity={0.7}
                     >
                         <Icons name="ellipsis1" size={24} color="#ffffff" />
@@ -55,77 +55,77 @@ const PerfilEHJ = () => {
                 </View>
 
                 {/* Seção do perfil */}
-                <View style={styles.profileSection}>
+                <View style={stylesHEJ.profileSectionHEJ}>
                     <Image
-                        source={require('./assets/photo.jpeg')}
-                        style={styles.profileImage}
+                        source={require('../assets/photo.jpeg')}
+                        style={stylesHEJ.profileImageHEJ}
                     />
-                    <Text style={styles.profileName}>Enzo Da Silva</Text>
-                    <Text style={styles.editProfileButton}>Editar perfil</Text>
+                    <CustomText style={stylesHEJ.profileNameHEJ}>Enzo Da Silva</CustomText>
+                    <CustomText style={stylesHEJ.editProfileButtonHEJ}>Editar perfil</CustomText>
                 </View>
 
                 {/* Contadores de seguidores/seguindo */}
-                <View style={styles.followContainer}>
-                    <View style={styles.followItem}>
-                        <Text style={styles.followCount}>99</Text>
-                        <Text style={styles.followText}>SEGUIDORES</Text>
+                <View style={stylesHEJ.followContainerHEJ}>
+                    <View style={stylesHEJ.followItemHEJ}>
+                        <CustomText style={stylesHEJ.followCountHEJ}>99</CustomText>
+                        <CustomText style={stylesHEJ.followCustomTextHEJ}>SEGUIDORES</CustomText>
                     </View>
-                    <View style={styles.followItem}>
-                        <Text style={styles.followCount}>71</Text>
-                        <Text style={styles.followText}>SEGUINDO</Text>
+                    <View style={stylesHEJ.followItemHEJ}>
+                        <CustomText style={stylesHEJ.followCountHEJ}>71</CustomText>
+                        <CustomText style={stylesHEJ.followCustomTextHEJ}>SEGUINDO</CustomText>
                     </View>
                 </View>
 
                 {/* Título das playlists */}
-                <View style={styles.playlistTitleContainer}>
-                    <Text style={styles.playlistTitle}>Playlists</Text>
+                <View style={stylesHEJ.playlistTitleContainerHEJ}>
+                    <CustomText style={stylesHEJ.playlistTitleHEJ}>Playlists</CustomText>
                 </View>
 
                 {/* Lista de playlists */}
-                <View style={styles.playlistsContainer}>
+                <View style={stylesHEJ.playlistsContainerHEJ}>
                     {/* Playlist 1 */}
-                    <View style={styles.playlistItem}>
+                    <View style={stylesHEJ.playlistItemHEJ}>
                         <Image
-                            source={require('./assets/play1.png')}
-                            style={styles.playlistImage}
+                            source={require('../assets/play1.png')}
+                            style={stylesHEJ.playlistImageHEJ}
                         />
-                        <View style={styles.playlistTextContainer}>
-                            <Text style={styles.playlistName}>Minhas músicas</Text>
-                            <Text style={styles.playlistLikes}>10 curtidas</Text>
+                        <View style={stylesHEJ.playlistCustomTextContainerHEJ}>
+                            <CustomText style={stylesHEJ.playlistNameHEJ}>Minhas músicas</CustomText>
+                            <CustomText style={stylesHEJ.playlistLikesHEJ}>10 curtidas</CustomText>
                         </View>
-                        <Icons name="right" size={20} color="#858585" style={styles.playlistArrow} />
+                        <Icons name="right" size={20} color="#858585" style={stylesHEJ.playlistArrowHEJ} />
                     </View>
 
                     {/* Playlist 2 */}
-                    <View style={styles.playlistItem}>
+                    <View style={stylesHEJ.playlistItemHEJ}>
                         <Image
-                            source={require('./assets/play2.png')}
-                            style={styles.playlistImage}
+                            source={require('../assets/play2.png')}
+                            style={stylesHEJ.playlistImageHEJ}
                         />
-                        <View style={styles.playlistTextContainer}>
-                            <Text style={styles.playlistName}>Work</Text>
-                            <Text style={styles.playlistLikes}>10 curtidas</Text>
+                        <View style={stylesHEJ.playlistCustomTextContainerHEJ}>
+                            <CustomText style={stylesHEJ.playlistNameHEJ}>Work</CustomText>
+                            <CustomText style={stylesHEJ.playlistLikesHEJ}>10 curtidas</CustomText>
                         </View>
-                        <Icons name="right" size={20} color="#858585" style={styles.playlistArrow} />
+                        <Icons name="right" size={20} color="#858585" style={stylesHEJ.playlistArrowHEJ} />
                     </View>
 
                     {/* Playlist 3 */}
-                    <View style={styles.playlistItem}>
+                    <View style={stylesHEJ.playlistItemHEJ}>
                         <Image
-                            source={require('./assets/play3.png')}
-                            style={styles.playlistImage}
+                            source={require('../assets/play3.png')}
+                            style={stylesHEJ.playlistImageHEJ}
                         />
-                        <View style={styles.playlistTextContainer}>
-                            <Text style={styles.playlistName}>Jogos</Text>
-                            <Text style={styles.playlistLikes}>10 curtidas</Text>
+                        <View style={stylesHEJ.playlistCustomTextContainerHEJ}>
+                            <CustomText style={stylesHEJ.playlistNameHEJ}>Jogos</CustomText>
+                            <CustomText style={stylesHEJ.playlistLikesHEJ}>10 curtidas</CustomText>
                         </View>
-                        <Icons name="right" size={20} color="#858585" style={styles.playlistArrow} />
+                        <Icons name="right" size={20} color="#858585" style={stylesHEJ.playlistArrowHEJ} />
                     </View>
                 </View>
 
                 {/* Link para todas as playlists */}
-                <View style={styles.allPlaylistsContainer}>
-                    <Text style={styles.allPlaylistsText}>Ver todas as 6 playlists</Text>
+                <View style={stylesHEJ.allPlaylistsContainerHEJ}>
+                    <CustomText style={stylesHEJ.allPlaylistsCustomTextHEJ}>Ver todas as 6 playlists</CustomText>
                     <Icons name="right" size={20} color="#858585" />
                 </View>
             </View>
@@ -134,12 +134,12 @@ const PerfilEHJ = () => {
 };
 
 // Estilos
-const styles = StyleSheet.create({
-    container: {
+const stylesHEJ = StyleSheet.create({
+    containerHEJ: {
         flex: 1,
         backgroundColor: '#111111',
     },
-    background: {
+    backgroundHEJ: {
         position: 'absolute',
         left: 0,
         right: 0,
@@ -147,48 +147,48 @@ const styles = StyleSheet.create({
         bottom: 0,
         zIndex: -1,
     },
-    mainContainer: {
+    mainContainerHEJ: {
         flex: 1,
         flexDirection: 'column',
     },
-    headerContainer: {
+    headerContainerHEJ: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 15,
         paddingTop: 30,
     },
-    backButton: {
+    backButtonHEJ: {
         position: 'absolute',
         left: 15,
         top: 30,
         zIndex: 1,
     },
-    menuButton: {
+    menuButtonHEJ: {
         position: 'absolute',
         right: 15,
         top: 30,
         zIndex: 1,
     },
-    profileSection: {
+    profileSectionHEJ: {
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: 20,
     },
-    profileImage: {
+    profileImageHEJ: {
         width: 150,
         height: 150,
         borderRadius: 100,
         borderWidth: 2,
         borderColor: '#222222',
     },
-    profileName: {
+    profileNameHEJ: {
         color: '#FFFFFF',
         fontSize: 25,
         fontWeight: 'bold',
         marginTop: 10,
     },
-    editProfileButton: {
+    editProfileButtonHEJ: {
         color: '#ffffff',
         fontSize: 14,
         textAlign: 'center',
@@ -199,25 +199,25 @@ const styles = StyleSheet.create({
         width: 110,
         paddingVertical: 8,
     },
-    followContainer: {
+    followContainerHEJ: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginHorizontal: 70,
         marginTop: 50,
     },
-    followItem: {
+    followItemHEJ: {
         alignItems: 'center',
     },
-    followCount: {
+    followCountHEJ: {
         color: '#FFFFFF',
         fontSize: 16,
     },
-    followText: {
+    followCustomTextHEJ: {
         color: '#858585',
         fontSize: 12,
         marginTop: 5,
     },
-    playlistTitleContainer: {
+    playlistTitleContainerHEJ: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -225,45 +225,45 @@ const styles = StyleSheet.create({
         marginTop: 30,
         marginBottom: 10,
     },
-    playlistTitle: {
+    playlistTitleHEJ: {
         color: '#FFFFFF',
         fontSize: 20,
         fontWeight: 'bold',
     },
-    playlistsContainer: {
+    playlistsContainerHEJ: {
         marginHorizontal: 20,
     },
-    playlistItem: {
+    playlistItemHEJ: {
         flexDirection: 'row',
         alignItems: 'center',
         marginVertical: 15,
     },
-    playlistImage: {
+    playlistImageHEJ: {
         width: 70,
         height: 70,
         borderWidth: 2,
         borderColor: '#222222',
         marginRight: 15,
     },
-    playlistTextContainer: {
+    playlistCustomTextContainerHEJ: {
         flex: 1,
         justifyContent: 'center',
     },
-    playlistName: {
+    playlistNameHEJ: {
         color: '#FFFFFF',
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 4,
     },
-    playlistLikes: {
+    playlistLikesHEJ: {
         color: '#FFFFFF',
         fontSize: 14,
         opacity: 0.8,
     },
-    playlistArrow: {
+    playlistArrowHEJ: {
         marginLeft: 'auto',
     },
-    allPlaylistsContainer: {
+    allPlaylistsContainerHEJ: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -271,10 +271,10 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
     },
-    allPlaylistsText: {
+    allPlaylistsCustomTextHEJ: {
         color: '#858585',
         fontSize: 14,
     },
 });
 
-export default PerfilEHJ;
+export default PerfilHEJ;

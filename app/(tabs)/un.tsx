@@ -1,5 +1,5 @@
 import { Redirect } from 'expo-router';
 
-export default function Un() {
+export default function UnHEJ() {
   return <Redirect href="/(tabs)" />;
 }
